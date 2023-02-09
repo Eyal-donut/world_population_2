@@ -1,0 +1,1 @@
+const continentsBtnContainer = document.getElementById('continents-btn-container')
