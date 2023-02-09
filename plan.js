@@ -5,7 +5,7 @@ const buttonsContainer = 'something'
 async function getCountriesData(){
     try {
         const respons = await fetch()
-        if(!resoponse.ok) throw new Error("sth went wrong")
+        if(!resoponse.ok) throw new Error(response.status)
         
 
         const data = response.json()

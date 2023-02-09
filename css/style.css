@@ -23,12 +23,13 @@ h2.dynamic-instructions.choose-country {
   display: flex;
   justify-content: center;
   align-items: center;
+  padding: 2rem;
 }
 
 #continents-btn-grid {
   display: grid;
   align-items: center;
-  grid-template-columns: repeat(7, 14.5rem);
+  grid-template-columns: repeat(5, 14.5rem);
   grid-gap: 1.5rem;
   width: 100%;
   /* background: rgb(0, 0, 0, 0.2); */
@@ -37,7 +38,8 @@ h2.dynamic-instructions.choose-country {
 
 #countries-btn-grid {
   display: grid;
-  grid-template-columns: repeat(14, max-content);
+  grid-template-columns: repeat(10,  minmax(auto, max-content));
+  justify-items: center;
   grid-gap: 1.5rem;
   width: 100%;
   /* background: rgb(0, 0, 0, 0.2); */
@@ -49,6 +51,7 @@ button {
   padding: .5rem;
   border-radius: 0.5rem;
   margin: 0 2rem;
+  background: var(--continent-btn-color);
 }
 
 button.country-btn {
@@ -58,6 +61,7 @@ button.country-btn {
   padding: .5rem;
   border-radius: 0.5rem;
   margin: 0 2rem;
+  background: var(--country-btn-color);
 }
 
 .graph-container {
