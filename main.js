@@ -169,30 +169,17 @@ const getCountriesByContinent = async (continent) =>{
     if (localStorage.getItem(`countriesIn${continent}`) !== null) {
 
         initFromLocalStorage(continent)
-        // const localDataCountries = JSON.parse(localStorage.getItem(`countriesIn${continent}`));
-        // console.log('👽',localDataCountries)
-        // resetChart();
-        // getPopulationsForEachCountry(localDataCountries)
-        // createCountryButtonsFromData(localDataCountries)
-        // initChart(chartLabels, chartData)
     }
     else {
         try {
             // toggleSpinnerView()
-            const response = await fetch(`https:restcountries.com/v3.1/region/${continent}`)
+            const response = await fetch(`https//:restcountries.com/v3.1/region/${continent}`)
             if(!response.ok) {
                 throw new Error(response)
             }
             const countriesData = await response.json()
             localStorage.setItem(`countriesIn${continent}`, JSON.stringify(await countriesData))
             initFromLocalStorage(continent)
-            
-            // resetChart();
-            // getPopulationsForEachCountry(countriesData)
-            // createCountryButtonsFromData(countriesData)
-            // initChart(chartLabels, chartData)
-            // toggleSpinnerView()
-            
         } catch (error) {
             console.log("Something went wrong")
             console.log(error)
