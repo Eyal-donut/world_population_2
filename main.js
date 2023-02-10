@@ -173,7 +173,7 @@ const getCountriesByContinent = async (continent) =>{
     else {
         try {
             // toggleSpinnerView()
-            const response = await fetch(`https//:restcountries.com/v3.1/region/${continent}`)
+            const response = await fetch(`https://restcountries.com/v3.1/region/${continent}`)
             if(!response.ok) {
                 throw new Error(response)
             }
