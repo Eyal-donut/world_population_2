@@ -1,4 +1,4 @@
-const getCountriesPopulations = async (country) => {
+const getCountryPopulation = async (country) => {
     try {
         const response = await fetch('https://countriesnow.space/api/v0.1/countries/population', {
             method: 'POST',
@@ -21,4 +21,4 @@ const getCountriesPopulations = async (country) => {
         
     }
 }
-getCountriesPopulations('Israel')
+getCountryPopulation('Israel')
