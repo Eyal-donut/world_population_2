@@ -6,9 +6,7 @@ const countryButtonsGrid = document.getElementById("countries-btn-grid")
 const spinnerContainer = document.getElementById("spinner-container")
 const spinner = document.querySelector(".spinner")
 
-//############################################### Functions ####################################################
-
-
+//############################################### Aid functions ####################################################
 
 
 const toggleSpinnerView = () => {
@@ -21,7 +19,7 @@ const createGraph = () => {}
 
 //###############################################################################################################
 
-//?###################################### Click on continent - get countries, populations & cities  ################################################
+//?###################################### Click on continent: get countries & populations   ####################################################
 
 const createCountryButtonsFromData = (data) => {
     countryButtonsGrid.innerHTML = null
