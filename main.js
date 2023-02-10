@@ -1,3 +1,6 @@
+//############################################## Variables ##################################################
+
+
 const continentsBtnContainer = document.getElementById('continents-btn-container')
 const countryButtonsGrid = document.getElementById("countries-btn-grid")
 
@@ -21,6 +24,7 @@ document.addEventListener("click", function(e){
     if(e.target.className === 'continent-btn') {
         const continent = e.target.innerText.toLowerCase()
         getCountriesByContinent(continent)
+        alert('y')
     }
 })
 

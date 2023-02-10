@@ -1,3 +1,14 @@
+body {
+  position: relative;
+  display: flex;
+  justify-content: flex-start;
+  flex-direction: column;
+  align-items: center;
+  height: 100vh;
+  width: 100vw;
+  background: var(--bgr-color);
+}
+
 h1 {
   font-size: 3.4rem;
   font-weight: 700;
@@ -69,4 +80,35 @@ button.country-btn {
   width: 90%;
   background: rgb(0, 0, 0, 0.2);
   margin: 3rem 0;
+}
+
+.spinner {
+  width: 10rem;
+  height:10rem;
+  margin:2rem;
+  border-top: 0.5rem solid goldenrod;
+  border-radius:50%;
+  animation: spin 0.8s linear infinite;
+}
+
+
+.spinner-container {
+display: none;
+}
+
+.spinner-container.display {
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  top: 10rem;
+  background: var(--bgr-color);
+  /* background: rgb(0, 0, 0, 0.4); */
+  width: 100%;
+  height: 15%;
+}
+
+@keyframes spin {
+  0% {transform: rotate(0deg);}
+  100% {transform:rotate(360deg);}
 }
