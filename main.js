@@ -11,7 +11,7 @@ let myChart =new Chart(lineChart, {
         labels: chartLabels,
         datasets: [
             {
-            label: "population of the countries",
+            label: "Population",
             data: chartData,
             borderWidth: 1,
             },
@@ -25,6 +25,8 @@ let myChart =new Chart(lineChart, {
         },
     },
 });
+Chart.defaults.font.size = 18;
+
 
 
 const continentsBtnContainer = document.getElementById('continents-btn-container')

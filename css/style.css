@@ -1,21 +1,24 @@
-body {
+section#landscape {
   position: relative;
   display: flex;
   justify-content: flex-start;
   flex-direction: column;
   align-items: center;
   background: var(--bgr-color);
+  min-height: 100vh;
+  min-width: 100vw;
 }
+
 
 h1 {
   font-size: 3.4rem;
   font-weight: 700;
-  margin: 3rem 0;
+  margin: 2rem 0;
 }
 
 h2 {
   font-size: 2.6rem;
-  margin-bottom: 3rem;
+  margin-bottom: 1rem;
 }
 
 
@@ -42,9 +45,10 @@ h2.dynamic-text.error.display {
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 2rem;
+  padding: 1rem;
   width: 100%;
 }
+
 
 #continents-btn-grid {
   display: grid;
@@ -85,8 +89,8 @@ button.country-btn {
 }
 
 .graph-container {
-  height: 60rem;
-  width: 120rem;
+  height: 63rem;
+  width: 125rem;
   background: rgb(255, 255, 255, 0.3);
   margin: 3rem 0;
 }

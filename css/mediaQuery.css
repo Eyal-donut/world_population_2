@@ -1,0 +1,53 @@
+/* @media (max-width: 1050px) {
+  :root {
+    font-size: 45%;
+    letter-spacing: 0.06rem;
+  }
+  .player1-interface-container {
+    width: 90%;
+  }
+  .player1-interface-container.winner {
+    width: 90%;
+  }
+  .player2-interface-container {
+    width: 90%;
+  }
+  .player2-interface-container.winner {
+    width: 90%;
+  }
+  .middle-container {
+    padding: 10rem 0 34rem;
+  }
+  .player1-overlay,
+  .player1-overlay.active,
+  .player2-overlay,
+  .player2-overlay.active {
+      display: none;
+  }
+.finger,
+.finger.transitioned {
+  visibility: visible;
+}
+} */
+
+@media (orientation: portrait) {
+  section#landscape {
+    display: none;
+  }
+
+}
+
+@media (max-width: 500px) {
+  :root {
+    font-size: 62.5%;
+  }
+  body {
+    width: 300vw;
+    height: 100vh;
+  }
+
+}
+
+section#portrait {
+  
+}

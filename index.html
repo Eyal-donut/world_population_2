@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="/css/normalize.css" />
     <link rel="stylesheet" href="/css/variables.css" />
     <link rel="stylesheet" href="/css/style.css" />
+    <link rel="stylesheet" href="./css/mediaQuery.css" />
     <script src="https://cdn.jsdelivr.net/npm/chart.js" defer></script>
     <script type="module" src="././main.js" defer></script>
 
@@ -17,49 +18,49 @@
     <title>world Population👩🏻‍🤝‍🧑🏽</title>
 </head>
 <body>
-    <div id="spinner-container">
-        <div class="spinner"></div>
-    </div>
-    <h1>World Population👩🏻‍🤝‍🧑🏽</h1>
-    <!-- <button>How does it work</button> -->
-    <!-- <div class="modal">
-        <h2>Instructions</h2>
-        <p>
-            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Tempora ut ipsam unde consequatur autem assumenda, saepe ipsum officia sed rem!
-        </p>
-    </div> -->
-    <h2 class="dynamic-text choose-continent display">
-        Choose a continent to display countries population
-    </h2>
-    <h2 class="dynamic-text choose-country">
-        Choose a country to display cities population
-    </h2>
-    <h2 class="dynamic-text error">
-        Error
-    </h2>
-
-    <div class="grid-outer-container">
-        <div id="continents-btn-grid">
-            <button class="continent-btn">Asia</button>
-            <button class="continent-btn">Europe</button>
-            <button class="continent-btn">Africa</button>
-            <button class="continent-btn">Americas</button>
-            <button class="continent-btn">Oceania</button>
+    <section id="landscape">
+        <div id="spinner-container">
+            <div class="spinner"></div>
         </div>
-    </div>
+        <h1>World Population👩🏻‍🤝‍🧑🏽</h1>
+        <!-- <button>How does it work</button> -->
+        <!-- <div class="modal">
+            <h2>Instructions</h2>
+            <p>
+                Lorem ipsum dolor, sit amet consectetur adipisicing elit. Tempora ut ipsam unde consequatur autem assumenda, saepe ipsum officia sed rem!
+            </p>
+        </div> -->
+        <h2 class="dynamic-text choose-continent display">
+            Choose a continent to display countries population
+        </h2>
+        <h2 class="dynamic-text choose-country">
+            Choose a country to display cities population
+        </h2>
+        <h2 class="dynamic-text error">
+            Error
+        </h2>
     
-    <div class="graph-container">
-        <canvas id="myChart"></canvas>
-    </div>
-    
-    <div class="grid-outer-container">
-        <div id="countries-btn-grid">
-            
+        <div class="grid-outer-container">
+            <div id="continents-btn-grid">
+                <button class="continent-btn">Asia</button>
+                <button class="continent-btn">Europe</button>
+                <button class="continent-btn">Africa</button>
+                <button class="continent-btn">Americas</button>
+                <button class="continent-btn">Oceania</button>
+            </div>
         </div>
-    </div>
+        
+        <div class="graph-container">
+            <canvas id="myChart"></canvas>
+        </div>
+        
+        <div class="grid-outer-container">
+            <div id="countries-btn-grid">
+                
+            </div>
+        </div>
+    </section>
     
-
-
    
 
 </body>
