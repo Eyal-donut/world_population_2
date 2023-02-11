@@ -4,8 +4,6 @@ body {
   justify-content: flex-start;
   flex-direction: column;
   align-items: center;
-  height: 100vh;
-  width: 100vw;
   background: var(--bgr-color);
 }
 
@@ -20,14 +18,24 @@ h2 {
   margin-bottom: 3rem;
 }
 
-/*! toggle these classes when clicking on the buttons */
-h2.dynamic-instructions.choose-continent {
-  display: block;
-}
-h2.dynamic-instructions.choose-country {
+
+h2.dynamic-text.choose-continent,
+h2.dynamic-text.choose-country,
+h2.dynamic-text.error {
   display: none;
 }
-/*! #################################*/
+
+h2.dynamic-text.choose-continent.display,
+h2.dynamic-text.choose-country.display {
+  display: block;
+}
+
+h2.dynamic-text.error.display {
+  display: block;
+  color: rgb(196, 67, 67);
+}
+
+
 
 /* ! make responsive later */
 .grid-outer-container {
@@ -35,6 +43,7 @@ h2.dynamic-instructions.choose-country {
   justify-content: center;
   align-items: center;
   padding: 2rem;
+  width: 100%;
 }
 
 #continents-btn-grid {
@@ -42,7 +51,7 @@ h2.dynamic-instructions.choose-country {
   align-items: center;
   grid-template-columns: repeat(5, 14.5rem);
   grid-gap: 1.5rem;
-  width: 100%;
+  width: fit-content
   /* background: rgb(0, 0, 0, 0.2); */
 }
 
@@ -52,7 +61,7 @@ h2.dynamic-instructions.choose-country {
   grid-template-columns: repeat(10,  minmax(auto, max-content));
   justify-items: center;
   grid-gap: 1.5rem;
-  width: 100%;
+  width: fit-content;
   /* background: rgb(0, 0, 0, 0.2); */
 }
 
@@ -76,9 +85,9 @@ button.country-btn {
 }
 
 .graph-container {
-  height: 55%;
-  width: 90%;
-  background: rgb(0, 0, 0, 0.2);
+  height: 60rem;
+  width: 120rem;
+  background: rgb(255, 255, 255, 0.3);
   margin: 3rem 0;
 }
 

@@ -5,11 +5,39 @@ let chartData = []
 let chartLabels = []
 const lineChart = document.getElementById('myChart');
 
+let myChart =new Chart(lineChart, {
+    type: "line",
+    data: {
+        labels: chartLabels,
+        datasets: [
+            {
+            label: "population of the countries",
+            data: chartData,
+            borderWidth: 1,
+            },
+        ],
+    },
+    options: {
+        scales: {
+            y: {
+                beginAtZero: true,
+            },
+        },
+    },
+});
+
 
 const continentsBtnContainer = document.getElementById('continents-btn-container')
 const countryButtonsGrid = document.getElementById("countries-btn-grid")
 const spinnerContainer = document.getElementById("spinner-container")
 const spinner = document.querySelector(".spinner")
+
+const chooseContinent = document.querySelector(".choose-continent")
+const chooseCountry = document.querySelector(".choose-country")
+const errorMsg = document.querySelector(".error")
+
+let activeHeadingMsg = chooseContinent
+
 
 //#################################################################################################################
 //############################################### Aid functions ####################################################
@@ -48,29 +76,35 @@ const initChart = (countries, populationData) => {
             },
             },
         });
-        myChart.update()
     }
 
-const createCountryButtonsFromData = (data) => {
+const resetButtonsGrid = () => {
     countryButtonsGrid.innerHTML = null
-    data.forEach(country => {
-        const button = document.createElement('button')
+}
+
+const createButton = (country) => {
+    const button = document.createElement('button')
         button.classList.add("country-btn")
-        button.innerText = country.name.common
+        button.innerText = country
         countryButtonsGrid.append(button)
-    })
 }
     
+const setHeadingText = (makeActive) => {
+    activeHeadingMsg.classList.toggle('display')
+    activeHeadingMsg = makeActive
+    activeHeadingMsg.classList.toggle('display')
+}
 
 //#######################################################################################################################
 //################################################# Data Massage and Init  ##############################################
 
-const setChartVariablesWithCountryPopulation = (data, country) => {
+const setChartVariablesWithCountryPopulation = async (data, country) => {
         const populationCountsArray = data.data.populationCounts
         const lastIndex = data.data.populationCounts.length -1
         const populationValue =  data.data.populationCounts[lastIndex].value
         chartLabels.push(`${country}`)
         chartData.push(populationValue)
+        
 }
 
 const setChartVariablesWithCity = (dataInput) => {
@@ -83,13 +117,14 @@ const setChartVariablesWithCity = (dataInput) => {
     })
 }
 
+
 const initCountriesFromLocalStorage = (continent) => {
     const localDataCountries = JSON.parse(localStorage.getItem(`countriesIn${continent}`));
     resetChart();
-    getPopulationsForEachCountry(localDataCountries)
-    createCountryButtonsFromData(localDataCountries)
+    resetButtonsGrid(localDataCountries)
+    getCountriesPopulations(localDataCountries)
     initChart(chartLabels, chartData)
-    // myChart.update()
+    setHeadingText(chooseCountry)
 
     
 }
@@ -111,6 +146,7 @@ const getCountryPopulation = async (country) => {
     if (localStorage.getItem(`populationOf${country}`) !== null) {
         const localDataCountriesPopulation = JSON.parse(localStorage.getItem(`populationOf${country}`));
         setChartVariablesWithCountryPopulation(localDataCountriesPopulation, country)
+            createButton(country)
     } 
     else {
         try {
@@ -123,24 +159,24 @@ const getCountryPopulation = async (country) => {
                 body: JSON.stringify({ "country": `${country}` })
             })
 
-            if(!response.ok) {
-                throw new Error(response.status)
-            }
+            if(!response.ok) throw new Error(response.status)           
+            else {
             const populationData = await response.json()
             localStorage.setItem(`populationOf${country}`, JSON.stringify(populationData))
             const localPopulationData = JSON.parse(localStorage.getItem(`populationOf${country}`));
-
             setChartVariablesWithCountryPopulation(localPopulationData, country)
+            createButton(country)
+            }
 
         } catch (error) {
-            console.log("Something went wrong")
+            console.log("Something went wrong", "getCountryPopulation")
             console.log(error)
             
         }
     }
 }
 
-const getPopulationsForEachCountry = (data) => {
+const getCountriesPopulations = (data) => {
     data.forEach(country => {
         getCountryPopulation(country.name.common)
     })
@@ -157,19 +193,20 @@ const getCountriesByContinent = async (continent) =>{
             toggleSpinnerView()
             const response = await fetch(`https://restcountries.com/v3.1/region/${continent}`)
             if(!response.ok) {
+                toggleSpinnerView()
                 throw new Error(response)
             }
             const countriesData = await response.json()
-            localStorage.setItem(`countriesIn${continent}`, JSON.stringify(countriesData))
+            localStorage.setItem(`countriesIn${continent}`, JSON.stringify(await countriesData))
             initCountriesFromLocalStorage(continent)
-            const localDataCountries = JSON.parse(localStorage.getItem(`countriesIn${continent}`));
-            resetChart();
-            getPopulationsForEachCountry(localDataCountries)
-            createCountryButtonsFromData(localDataCountries)
-            initChart(chartLabels, chartData)
+            setInterval(() => {
+                myChart.update()
+                
+            }, 300);
             toggleSpinnerView()
+
         } catch (error) {
-            console.log("Something went wrong")
+            console.log("Something went wrong", "getCountriesByContinent")
             console.log(error)
         }
     }
@@ -196,6 +233,9 @@ const getCitiesByCountry = async (country) => {
                 })
             })
             if(!response.ok) {
+                toggleSpinnerView()
+                errorMsg.innerText = `Error! could not get ${country}'s cities population data. Please choose another country.`
+                setHeadingText(errorMsg)
                 throw new Error(response.status)
             }            
             const citiesData = await response.json()
@@ -206,7 +246,7 @@ const getCitiesByCountry = async (country) => {
             toggleSpinnerView()
 
         } catch (error) {
-            console.log("Something went wrong")
+            console.log("Something went wrong", "getCitiesByCountry")
             console.log(error)
         }
     }
@@ -237,25 +277,5 @@ document.addEventListener("click", function(e){
 
 
 
-let myChart =new Chart(lineChart, {
-    type: "line",
-    data: {
-        labels: chartLabels,
-        datasets: [
-            {
-            label: "population of the countries",
-            data: chartData,
-            borderWidth: 1,
-            },
-        ],
-    },
-    options: {
-        scales: {
-            y: {
-                beginAtZero: true,
-            },
-        },
-    },
-});
 
 
