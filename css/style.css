@@ -9,7 +9,6 @@ section#landscape {
   min-width: 100vw;
 }
 
-
 h1 {
   font-size: 3.4rem;
   font-weight: 700;
@@ -37,8 +36,6 @@ h2.dynamic-text.error.display {
   color: rgb(196, 67, 67);
 }
 
-
-
 .grid-outer-container {
   display: flex;
   justify-content: center;
@@ -47,7 +44,6 @@ h2.dynamic-text.error.display {
   width: 100%;
 }
 
-
 #continents-btn-grid {
   display: grid;
   align-items: center;
@@ -55,7 +51,6 @@ h2.dynamic-text.error.display {
   grid-gap: 1.5rem;
   width: fit-content
 }
-
 
 #countries-btn-grid {
   display: grid;
@@ -88,7 +83,7 @@ button.country-btn {
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 63rem;
+  height: 65rem;
   width: 130rem;
   background: rgb(255, 255, 255, 0.3);
   margin: 3rem 0;
