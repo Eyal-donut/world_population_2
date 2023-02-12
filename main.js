@@ -25,7 +25,7 @@ let myChart =new Chart(lineChart, {
         },
     },
 });
-Chart.defaults.font.size = 18;
+Chart.defaults.font.size = 16;
 
 
 
@@ -64,7 +64,7 @@ const initChart = (countries, populationData) => {
             labels: countries,
             datasets: [
                 {
-                label: "population of the countries",
+                label: "Population",
                 data: populationData,
                 borderWidth: 1,
                 },

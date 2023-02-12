@@ -30,14 +30,50 @@
 }
 } */
 
+section#portrait {
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+
+
+@media(max-width: 1200px) {
+  :root {
+    font-size: 45%;
+  }
+  section#landscape {
+    width: 100vw;
+    min-height: 100vh;
+  }
+  .graph-container {
+    height: 50rem;
+    width: 80rem;
+  }
+  #countries-btn-grid {
+    grid-template-columns: repeat(4,  minmax(auto, max-content));
+    
+  }
+}
+
+
+
+
+@media (orientation: landscape) {
+  section#portrait {
+    display: none;
+  }
+}
+
 @media (orientation: portrait) {
   section#landscape {
     display: none;
   }
-
 }
 
-@media (max-width: 500px) {
+/* @media (max-width: 500px) {
   :root {
     font-size: 62.5%;
   }
@@ -46,8 +82,6 @@
     height: 100vh;
   }
 
-}
+} */
 
-section#portrait {
-  
-}
+

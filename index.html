@@ -8,7 +8,9 @@
     <link rel="stylesheet" href="/css/normalize.css" />
     <link rel="stylesheet" href="/css/variables.css" />
     <link rel="stylesheet" href="/css/style.css" />
+    <link rel="stylesheet" href="./css/rotate-device.css" />
     <link rel="stylesheet" href="./css/mediaQuery.css" />
+    <script src="https://kit.fontawesome.com/df164e7096.js" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js" defer></script>
     <script type="module" src="././main.js" defer></script>
 
@@ -34,7 +36,7 @@
             Choose a continent to display countries population
         </h2>
         <h2 class="dynamic-text choose-country">
-            Choose a country to display cities population
+            Choose a country to display cities population, or choose a different continent.
         </h2>
         <h2 class="dynamic-text error">
             Error
@@ -60,8 +62,16 @@
             </div>
         </div>
     </section>
-    
-   
 
+    <section id="portrait">
+        <div class="overlay">
+            <div class="iconContainer">
+                <div class="phone">
+                    <i class="fa-solid fa-rotate"></i>
+                </div>
+                <p>Rotate your device sideways</p>
+            </div>
+        </div>
+    </section>
 </body>
 </html>
