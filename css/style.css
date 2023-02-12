@@ -55,13 +55,12 @@ h2.dynamic-text.error.display {
   grid-template-columns: repeat(5, 14.5rem);
   grid-gap: 1.5rem;
   width: fit-content
-  /* background: rgb(0, 0, 0, 0.2); */
 }
 
 
 #countries-btn-grid {
   display: grid;
-  grid-template-columns: repeat(10,  minmax(auto, max-content));
+  grid-template-columns: repeat(9,  minmax(auto, max-content));
   justify-items: center;
   grid-gap: 1.5rem;
   width: fit-content;
