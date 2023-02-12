@@ -33,7 +33,6 @@ const continentsBtnContainer = document.getElementById('continents-btn-container
 const countryButtonsGrid = document.getElementById("countries-btn-grid")
 const spinnerContainer = document.getElementById("spinner-container")
 const spinner = document.querySelector(".spinner")
-
 const chooseContinent = document.querySelector(".choose-continent")
 const chooseCountry = document.querySelector(".choose-country")
 const errorMsg = document.querySelector(".error")
@@ -136,6 +135,7 @@ const initCitiesFromLocalStorage = (country) => {
     resetChart();
     setChartVariablesWithCity(localDataCities)
     initChart(chartLabels, chartData)
+    setHeadingText(chooseCountry)
 }
 
 //###############################################################################################################

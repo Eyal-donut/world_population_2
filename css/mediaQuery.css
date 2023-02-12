@@ -49,8 +49,8 @@ section#portrait {
     min-height: 100vh;
   }
   .graph-container {
-    height: 50rem;
-    width: 80rem;
+    height: 47rem;
+    width: 85rem;
   }
   #countries-btn-grid {
     grid-template-columns: repeat(4,  minmax(auto, max-content));
