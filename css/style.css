@@ -21,7 +21,6 @@ h2 {
   margin-bottom: 1rem;
 }
 
-
 h2.dynamic-text.choose-continent,
 h2.dynamic-text.choose-country,
 h2.dynamic-text.error {
@@ -86,8 +85,11 @@ button.country-btn {
 }
 
 .graph-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   height: 63rem;
-  width: 125rem;
+  width: 130rem;
   background: rgb(255, 255, 255, 0.3);
   margin: 3rem 0;
 }

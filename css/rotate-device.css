@@ -16,16 +16,15 @@
   margin-left: -100px;
   margin-top: -100px;
 }
- p {
-    display: inline-block;
-    width: 100%;
-    text-align: center;
-    margin: 0;
-    font-size: 22px;
-    opacity: 0;
-    font-weight: 550;
-  }
-
+p {
+  display: inline-block;
+  width: 100%;
+  text-align: center;
+  margin: 0;
+  font-size: 22px;
+  opacity: 0;
+  font-weight: 550;
+}
 
 .phone {
   position: relative;
@@ -42,14 +41,13 @@
   align-items: center;
 }
 i {
-    text-align: center;
-    width: 100%;
-    line-height: 120px;
-    font-size: 50px;
-    color: #454545;
-    opacity: 0;
-  }
-
+  text-align: center;
+  width: 100%;
+  line-height: 120px;
+  font-size: 50px;
+  color: #454545;
+  opacity: 0;
+}
 
 @media only screen and (max-width: 1020px) {
   .overlay {
